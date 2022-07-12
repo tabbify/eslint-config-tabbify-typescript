@@ -31,10 +31,12 @@
 	"main": ".eslintrc.json",
 	"type": "commonjs",
 	"dependencies": {
+		"@typescript-eslint/parser": "^5.30.6",
 		"eslint-config-tabbify": "^0.1.2"
 	},
 	"devDependencies": {},
 	"peerDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.30.6",
 		"eslint": ">=8"
 	}
 }
