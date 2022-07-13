@@ -1,0 +1,40 @@
+{
+	"name": "eslint-config-tabbify-typescript",
+	"private": false,
+	"license": "MIT",
+	"version": "0.0.0",
+	"description": "TypeScript extension configs for the opinionated JavaScript style guide, Tabbify.",
+	"keywords": [
+		"ESLint",
+		"config",
+		"tabbify",
+		"tabs",
+		"comprehensive",
+		"TypeScript"
+	],
+	"homepage": "https://github.com/tabbify/eslint-config-tabbify-typescript#README.md",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tabbify/eslint-config-tabbify-typescript.git"
+	},
+	"bugs": {
+		"url": "https://github.com/tabbify/eslint-config-tabbify-typescript/issues",
+		"email": "noltron000@gmail.com"
+	},
+	"author": {
+		"name": "noltron000",
+		"email": "noltron000@gmail.com",
+		"url": "https://noltron000.com/"
+	},
+	"contributors": [],
+	"packageManager": "yarn@3.2.1",
+	"main": ".eslintrc.json",
+	"type": "commonjs",
+	"dependencies": {
+		"eslint-config-tabbify": "^0.1.2"
+	},
+	"devDependencies": {},
+	"peerDependencies": {
+		"eslint": ">=8"
+	}
+}
