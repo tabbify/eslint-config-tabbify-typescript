@@ -136,19 +136,19 @@ __metadata:
   resolution: "eslint-config-tabbify-typescript@workspace:."
   dependencies:
     "@typescript-eslint/parser": ^5.30.6
-    eslint-config-tabbify: ^0.1.2
+    eslint-config-tabbify: ^0.1.5
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^5.30.6
     eslint: ">=8"
   languageName: unknown
   linkType: soft
 
-"eslint-config-tabbify@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "eslint-config-tabbify@npm:0.1.2"
+"eslint-config-tabbify@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "eslint-config-tabbify@npm:0.1.5"
   peerDependencies:
     eslint: ">=8"
-  checksum: f6db7f38a378568dced421d2cd791304b7b0654dffa53d09822d5c6f03a0012607a4300d2f9a75b66cc5dce187dde42a98dc9760cb15eb6a7f2a1f752d747421
+  checksum: 8d4542d22e56cc9d1b9c387ec8ad07d7d6fed89ba56544b3be4d554eea9123c70c086c46d218a02319ca31d5afb9849cf4aed2f0b009af9cf9fbf341d38c1218
   languageName: node
   linkType: hard
 

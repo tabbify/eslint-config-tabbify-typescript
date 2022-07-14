@@ -12,7 +12,7 @@
 		// Square bracket types thus implicitly indicate tuples.
 		"@typescript-eslint/array-type": [
 			"error",
-			"generic"
+			{"default": "generic"}
 		],
 
 		"@typescript-eslint/await-thenable": ["error"],
@@ -36,10 +36,7 @@
 		// Disallows all type assertions. Just don't do it.
 		"@typescript-eslint/consistent-type-assertions": [
 			"error",
-			{
-				"assertionStyle": "never",
-				"objectLiteralTypeAssertions": "never"
-			}
+			{ "assertionStyle": "never" }
 		],
 
 		// NOTE:
@@ -86,24 +83,16 @@
 		// It's not uncommon to see something like thing._id
 		"@typescript-eslint/naming-convention": [
 			"error",
-			[
-				{
-					"selector": "default",
-					"format": ["camelCase"],
-					"leadingUnderscore": "allowSingleOrDouble",
-					"trailingUnderscore": "allowSingleOrDouble"
-				},
-				{
-					"selector": "variable",
-					"format": ["camelCase", "PascalCase", "UPPER_CASE"],
-					"leadingUnderscore": "allowSingleOrDouble",
-					"trailingUnderscore": "allowSingleOrDouble"
-				},
-				{
-					"selector": "typeLike",
-					"format": ["PascalCase"]
-				}
-			]
+			{
+				"selector": "default",
+				"format": ["camelCase", "PascalCase", "UPPER_CASE"],
+				"leadingUnderscore": "allowSingleOrDouble",
+				"trailingUnderscore": "allowSingleOrDouble"
+			},
+			{
+				"selector": "typeLike",
+				"format": ["PascalCase"]
+			}
 		],
 
 		"@typescript-eslint/no-base-to-string": ["error"],
@@ -169,9 +158,10 @@
 		"@typescript-eslint/prefer-optional-chain": ["error"],
 		"@typescript-eslint/prefer-readonly": ["error"],
 
-		// TODO:
-		// May not be so helpful to me. Ensure this is good.
-		"@typescript-eslint/prefer-readonly-parameter-types": ["warn"],
+		// NOTE:
+		// This was reporting errors I didn't like,
+		// 	regardless of what its purpose is trying to do.
+		"@typescript-eslint/prefer-readonly-parameter-types": ["off"],
 
 		"@typescript-eslint/prefer-reduce-type-parameter": ["error"],
 		"@typescript-eslint/prefer-regexp-exec": ["error"],
@@ -249,7 +239,7 @@
 		"@typescript-eslint/no-empty-function": ["error"],
 
 		"no-extra-parens": ["off"],
-		"@typescript-eslint/no-extra-parens": ["error"],
+		"@typescript-eslint/no-extra-parens": ["off"],
 
 		"no-extra-semi": ["off"],
 		"@typescript-eslint/no-extra-semi": ["error"],
@@ -276,7 +266,7 @@
 		"@typescript-eslint/no-restricted-imports": ["off"],
 
 		"no-shadow": ["off"],
-		"@typescript-eslint/no-shadow": ["error"],
+		"@typescript-eslint/no-shadow": ["off"],
 
 		"no-throw-literal": ["off"],
 		"@typescript-eslint/no-throw-literal": ["error"],
@@ -290,7 +280,7 @@
 		"no-unused-vars": ["off"],
 		"@typescript-eslint/no-unused-vars": [
 			"error",
-			{"ignoreRestSiblings": true}
+			{"args": "none", "ignoreRestSiblings": true}
 		],
 
 		"no-use-before-define": ["off"],
@@ -300,9 +290,9 @@
 		"@typescript-eslint/no-useless-constructor": ["error"],
 
 		"object-curly-spacing": ["off"],
-			"@typescript-eslint/object-curly-spacing": [
+		"@typescript-eslint/object-curly-spacing": [
 			"error",
-			"always"
+			"never"
 		],
 
 		"padding-line-between-statements": ["off"],
