@@ -326,7 +326,7 @@
 		],
 
 		"require-await": ["off"],
-		"@typescript-eslint/require-await": ["error"],
+		"@typescript-eslint/require-await": ["off"],
 
 		// NOTE:
 		// This isn't in ESLint's base settings.
