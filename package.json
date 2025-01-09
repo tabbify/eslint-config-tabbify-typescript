@@ -2,7 +2,7 @@
 	"name": "eslint-config-tabbify-typescript",
 	"private": false,
 	"license": "MIT",
-	"version": "0.1.9",
+	"version": "0.2.0",
 	"description": "TypeScript extension configs for the opinionated JavaScript style guide, Tabbify.",
 	"keywords": [
 		"ESLint",
@@ -31,14 +31,14 @@
 	"main": ".eslintrc.json",
 	"type": "commonjs",
 	"dependencies": {
-		"@typescript-eslint/parser": "^5.30.6",
-		"eslint-config-tabbify": "^0.1.12",
-		"eslint-import-resolver-typescript": "^3.3.0"
+		"@typescript-eslint/parser": "^8.19.1",
+		"eslint-config-tabbify": "^0.2.0",
+		"eslint-import-resolver-typescript": "^3.7.0"
 	},
 	"devDependencies": { },
 	"peerDependencies": {
-		"@typescript-eslint/eslint-plugin": ">=5",
-		"eslint": ">=8",
+		"@typescript-eslint/eslint-plugin": ">=8",
+		"eslint": ">=9",
 		"eslint-plugin-import": ">=2"
 	}
 }
