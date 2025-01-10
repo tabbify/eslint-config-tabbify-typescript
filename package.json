@@ -28,8 +28,8 @@
 	},
 	"contributors": [ ],
 	"packageManager": "yarn@4.6.0",
-	"main": ".eslintrc.json",
-	"type": "commonjs",
+	"main": "eslint.config.mjs",
+	"type": "module",
 	"dependencies": {
 		"@typescript-eslint/parser": "^8.19.1",
 		"eslint-config-tabbify": "^0.2.0",
