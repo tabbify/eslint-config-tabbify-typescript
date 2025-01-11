@@ -6,10 +6,10 @@ import tabbify from 'eslint-config-tabbify'
 import tseslint from 'typescript-eslint'
 
 const config = tseslint.config(
-	tabbify,
 	tseslint.configs.recommendedTypeChecked,
 	tseslint.configs.stylisticTypeChecked,
 	tseslint.configs.strictTypeChecked,
+	tabbify,
 
 	{
 		languageOptions: {
