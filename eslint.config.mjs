@@ -59,7 +59,6 @@ const config = [
 			'@typescript-eslint/await-thenable': ['error'],
 			'@typescript-eslint/ban-ts-comment': ['error'],
 			'@typescript-eslint/ban-tslint-comment': ['error'],
-			'@typescript-eslint/ban-types': ['error'],
 			'@typescript-eslint/class-literal-property-style': ['error'],
 
 			// NOTE:
@@ -166,6 +165,7 @@ const config = [
 			'@typescript-eslint/no-non-null-assertion': ['error'],
 			'@typescript-eslint/no-redundant-type-constituents': ['error'],
 			'@typescript-eslint/no-require-imports': ['error'],
+			'@typescript-eslint/no-restricted-types': ['error'],
 			'@typescript-eslint/no-this-alias': ['error'],
 
 			// NOTE:

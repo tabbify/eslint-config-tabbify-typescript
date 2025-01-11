@@ -2,7 +2,7 @@
 	"name": "eslint-config-tabbify-typescript",
 	"private": false,
 	"license": "MIT",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "TypeScript extension configs for the opinionated JavaScript style guide, Tabbify.",
 	"keywords": [
 		"ESLint",
