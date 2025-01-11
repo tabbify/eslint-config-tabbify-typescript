@@ -1,16 +1,23 @@
 /* eslint max-lines: 0 */
 
+import stylistic from '@stylistic/eslint-plugin'
 import typescriptEslint from '@typescript-eslint/eslint-plugin'
-import tsParser from '@typescript-eslint/parser'
 import tabbify from 'eslint-config-tabbify'
+import tseslint from 'typescript-eslint'
 
-const config = [
-	...tabbify,
+const config = tseslint.config(
+	tabbify,
+	tseslint.configs.recommendedTypeChecked,
+	tseslint.configs.stylisticTypeChecked,
+	tseslint.configs.strictTypeChecked,
 
 	{
 		languageOptions: {
 			sourceType: 'module',
-			parser: tsParser,
+			parserOptions: {
+				projectService: true,
+				tsconfigRootDir: import.meta.dirname,
+			},
 		},
 
 		files: [
@@ -20,11 +27,15 @@ const config = [
 			'**/*.tsx',
 		],
 
-		plugins: {'@typescript-eslint': typescriptEslint},
+		ignores: ['eslint.config.mjs'],
+
+		plugins: {
+			'@typescript-eslint': typescriptEslint,
+			'@stylistic': stylistic,
+		},
 
 		settings: {
 			'import/parsers': {'@typescript-eslint/parser': ['.ts', '.tsx', '.mts']},
-
 			'import/resolver': {
 				typescript: {alwaysTryTypes: true},
 				node: {
@@ -44,7 +55,94 @@ const config = [
 		},
 
 		rules: {
-			/* SUPPORTED RULES */
+			/* SUPPORTED STYLISTIC RULES */
+			'@stylistic/member-delimiter-style': [
+				'error',
+				{
+					singleline: {
+						delimiter: 'comma',
+						requireLast: false,
+					},
+					multiline: {
+						delimiter: 'comma',
+						requireLast: true,
+					},
+				},
+			],
+
+			'@stylistic/type-annotation-spacing': ['error'],
+
+			'brace-style': ['off'],
+			'@stylistic/brace-style': [
+				'error',
+				'stroustrup',
+			],
+
+			'comma-dangle': 'off',
+			'@stylistic/comma-dangle': [
+				'error',
+				'always-multiline',
+			],
+
+			'comma-spacing': ['off'],
+			'@stylistic/comma-spacing': ['error'],
+
+			'func-call-spacing': ['off'],
+			'@stylistic/func-call-spacing': ['error'],
+
+			'keyword-spacing': ['off'],
+			'@stylistic/keyword-spacing': ['error'],
+
+			'lines-between-class-members': ['off'],
+			'@stylistic/lines-between-class-members': ['error'],
+
+			'no-extra-semi': ['off'],
+			'@stylistic/no-extra-semi': ['error'],
+
+			'object-curly-spacing': ['off'],
+			'@stylistic/object-curly-spacing': [
+				'error',
+				'never',
+			],
+
+			'padding-line-between-statements': ['off'],
+			'@stylistic/padding-line-between-statements': [
+				'error',
+				{
+					prev: '*',
+					next: 'export',
+					blankLine: 'always',
+				},
+				{
+					prev: 'export',
+					next: 'export',
+					blankLine: 'any',
+				},
+			],
+
+			'quotes': ['off'],
+			'@stylistic/quotes': [
+				'error',
+				'single',
+			],
+
+			'semi': ['off'],
+			'@stylistic/semi': [
+				'error',
+				'never',
+				{beforeStatementContinuationChars: 'never'},
+			],
+
+			'space-before-blocks': ['off'],
+			'@stylistic/space-before-blocks': ['error'],
+
+			'space-before-function-paren': ['off'],
+			'@stylistic/space-before-function-paren': ['error'],
+
+			'space-infix-ops': ['off'],
+			'@stylistic/space-infix-ops': ['error'],
+
+			/* OTHER SUPPORTED RULES */
 			'@typescript-eslint/adjacent-overload-signatures': ['error'],
 
 			// NOTE:
@@ -94,22 +192,6 @@ const config = [
 			'@typescript-eslint/explicit-function-return-type': ['off'],
 			'@typescript-eslint/explicit-member-accessibility': ['off'],
 			'@typescript-eslint/explicit-module-boundary-types': ['off'],
-
-			// NOTE:
-			// Here at Tabbify, we dislike uneeded semicolons!
-			'@typescript-eslint/member-delimiter-style': [
-				'error',
-				{
-					singleline: {
-						delimiter: 'comma',
-						requireLast: false,
-					},
-					multiline: {
-						delimiter: 'comma',
-						requireLast: true,
-					},
-				},
-			],
 
 			// NOTE:
 			// Ordering stuff is fine in configuration like imports,
@@ -221,7 +303,6 @@ const config = [
 			'@typescript-eslint/strict-boolean-expressions': ['error'],
 			'@typescript-eslint/switch-exhaustiveness-check': ['error'],
 			'@typescript-eslint/triple-slash-reference': ['error'],
-			'@typescript-eslint/type-annotation-spacing': ['error'],
 
 			// NOTE: This seems like a dangerous setting.
 			'@typescript-eslint/typedef': ['off'],
@@ -229,31 +310,13 @@ const config = [
 			'@typescript-eslint/unbound-method': ['error'],
 			'@typescript-eslint/unified-signatures': ['error'],
 
-
 			/* EXTENSION RULES */
-			'brace-style': ['off'],
-			'@typescript-eslint/brace-style': [
-				'error',
-				'stroustrup',
-			],
-
-			'comma-dangle': 'off',
-			'@typescript-eslint/comma-dangle': [
-				'error',
-				'always-multiline',
-			],
-
-			'comma-spacing': ['off'],
-			'@typescript-eslint/comma-spacing': ['error'],
 
 			'default-param-last': ['off'],
 			'@typescript-eslint/default-param-last': ['error'],
 
 			'dot-notation': ['off'],
 			'@typescript-eslint/dot-notation': ['error'],
-
-			'func-call-spacing': ['off'],
-			'@typescript-eslint/func-call-spacing': ['error'],
 
 			// NOTE:
 			// This one is still super buggy, which is so sad!
@@ -262,12 +325,6 @@ const config = [
 
 			'init-declarations': ['off'],
 			'@typescript-eslint/init-declarations': ['off'],
-
-			'keyword-spacing': ['off'],
-			'@typescript-eslint/keyword-spacing': ['error'],
-
-			'lines-between-class-members': ['off'],
-			'@typescript-eslint/lines-between-class-members': ['error'],
 
 			'no-array-constructor': ['off'],
 			'@typescript-eslint/no-array-constructor': ['error'],
@@ -280,9 +337,6 @@ const config = [
 
 			'no-extra-parens': ['off'],
 			'@typescript-eslint/no-extra-parens': ['off'],
-
-			'no-extra-semi': ['off'],
-			'@typescript-eslint/no-extra-semi': ['error'],
 
 			'no-implied-eval': ['off'],
 			'@typescript-eslint/no-implied-eval': ['error'],
@@ -308,8 +362,9 @@ const config = [
 			'no-shadow': ['off'],
 			'@typescript-eslint/no-shadow': ['off'],
 
-			'no-throw-literal': ['off'],
-			'@typescript-eslint/no-throw-literal': ['error'],
+			/* TODO: Seems deprecated???? */
+			// 'no-throw-literal': ['off'],
+			// '@typescript-eslint/no-throw-literal': ['error'],
 
 			'no-unused-expressions': ['off'],
 			'@typescript-eslint/no-unused-expressions': [
@@ -329,33 +384,6 @@ const config = [
 			'no-useless-constructor': ['off'],
 			'@typescript-eslint/no-useless-constructor': ['error'],
 
-			'object-curly-spacing': ['off'],
-			'@typescript-eslint/object-curly-spacing': [
-				'error',
-				'never',
-			],
-
-			'padding-line-between-statements': ['off'],
-			'@typescript-eslint/padding-line-between-statements': [
-				'error',
-				{
-					prev: '*',
-					next: 'export',
-					blankLine: 'always',
-				},
-				{
-					prev: 'export',
-					next: 'export',
-					blankLine: 'any',
-				},
-			],
-
-			'quotes': ['off'],
-			'@typescript-eslint/quotes': [
-				'error',
-				'single',
-			],
-
 			'require-await': ['off'],
 			'@typescript-eslint/require-await': ['off'],
 
@@ -367,24 +395,13 @@ const config = [
 				'error',
 				'always',
 			],
-
-			'semi': ['off'],
-			'@typescript-eslint/semi': [
-				'error',
-				'never',
-				{beforeStatementContinuationChars: 'never'},
-			],
-
-			'space-before-blocks': ['off'],
-			'@typescript-eslint/space-before-blocks': ['error'],
-
-			'space-before-function-paren': ['off'],
-			'@typescript-eslint/space-before-function-paren': ['error'],
-
-			'space-infix-ops': ['off'],
-			'@typescript-eslint/space-infix-ops': ['error'],
 		},
 	},
-]
+
+	{
+		files: ['**/eslint.config.*'],
+		extends: [tseslint.configs.disableTypeChecked],
+	},
+)
 
 export default config
