@@ -826,7 +826,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^8.19.1"
     "@typescript-eslint/parser": "npm:^8.19.1"
     eslint: "npm:^9.18.0"
-    eslint-config-tabbify: "npm:^0.2.6"
+    eslint-config-tabbify: "npm:^0.2.7"
     eslint-import-resolver-typescript: "npm:^3.7.0"
     eslint-plugin-import: "npm:^2.31.0"
     typescript: "npm:^5.7.3"
@@ -836,9 +836,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"eslint-config-tabbify@npm:^0.2.6":
-  version: 0.2.6
-  resolution: "eslint-config-tabbify@npm:0.2.6"
+"eslint-config-tabbify@npm:^0.2.7":
+  version: 0.2.7
+  resolution: "eslint-config-tabbify@npm:0.2.7"
   dependencies:
     "@eslint/compat": "npm:^1.2.4"
     "@eslint/js": "npm:^9.18.0"
@@ -846,8 +846,8 @@ __metadata:
     eslint-plugin-import: "npm:^2.31.0"
     eslint-plugin-n: "npm:^17.15.1"
   peerDependencies:
-    eslint: ">=9"
-  checksum: 10c0/7a86e0d0b2ebe1d8ee7468faa092c8b3ff130bc58d5cf92bad4bc8044b3b19be177516591f33239ca605dacc4a1347148898582759b5389450bb739276db0dc6
+    eslint: ">=9.18"
+  checksum: 10c0/8567dba48d5bb67c1b3c55b939f12fd9a511d6bfa263b6e31ea1f99d56640de61fbd9afa292f156faf95737854e65acb9f324360de7b8de93061c3f38117b26f
   languageName: node
   linkType: hard
 
